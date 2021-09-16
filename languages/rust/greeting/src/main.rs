@@ -1,20 +1,18 @@
-use std::any::type_name;
-
-fn test_type<T>(_: T) {
-    println!("{:?}", { type_name::<T>() })
-}
-
 fn main() {
-    println!("Hello, World!!");
-    println!("Hello, world!");
-    let a:u8 = 2u8.pow(7);
-    println!("a = {}", a);
-    
-    let tup: (i32, f64, u8, bool, &str) = (500, 3.2, 1, false, "Hello World");
-    println!("{:?}", tup);
-    println!("{}, {}", tup.0, tup.4);
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+    let (x, y, z) = tup;
+    println!("x={}, y={}, z={}", x, y, z);
 
-    //typeof
-    test_type(tup);
-    test_type(tup.4);
+    let a = [1, 2, 3, 4, 5];
+    let b = ["January", "February", "March"];
+    let c : [i32; 5] = [1, 2, 3, 4, 5];
+    let d = [3; 5];
+    println!("a={:?}\nb={:?}\nc={:?}\nd={:?}", a, b, c, d);
+
+    let first = a[0];
+    let second = a[1];
+    
+    let mut a = [1, 2, 3, 4, 5];
+    a[0] = 4;
+    println!("a={:?}", a);
 }
