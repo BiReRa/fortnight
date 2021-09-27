@@ -2,9 +2,17 @@
 
 * [Fourier Transform](#1)
 
-    * [Definition of Fourier Transform](#1.1)
+  * [Definition of Fourier Transform](#1.1)
 
-    * [property of Fourier Transform](#1.2)
+  * [Property of Fourier Transform](#1.2)
+
+* [Discrete Fourier Transform](#2)
+
+  * [Definition of Discrete Fourier Transform](#2.1)
+
+  * [Twiddle factorization](#2.2)
+
+  * [Advantage of Discrete Fourier Transform](#2.3)
 
 <h2 id="1">Fourier Transform</h2>
 
@@ -30,11 +38,9 @@ $f$和$\hat{f}$常被称为**傅里叶积分对**或**傅里叶变换对**.
 
 * 线性性质
 
-两函数之和的傅里叶变换等于各自变换之和
+<!-- 两函数之和的傅里叶变换等于各自变换之和 -->
 
 * 平移性质
-
-
 
 * 微分关系
 
@@ -42,3 +48,36 @@ $f$和$\hat{f}$常被称为**傅里叶积分对**或**傅里叶变换对**.
 
 * 帕塞瓦尔特性
 
+<h2 id="2">Discrete Fourier Transform</h3>
+
+<h3 id="2.1">定义</h3>
+
+傅里叶变换是基于连续定义的，但是计算机只能处理离散的数据，因此我们对傅里叶变换进行**离散化**，DFT公式如下：
+
+$X(k)=\sum_{n=0}^{N-1}x(n)W_N^{kn}$，其中$W_N^{kn}=e^{-j\frac{2\pi}{N}kn}$为旋转因子
+
+<h3 id="2.2">旋转因子</h3>
+
+旋转因子具有如下性质：
+
+* 周期性
+
+  $W_N^{m+lN}=W_N^m$
+
+* 对称性
+
+  $W_N^{m+\frac{N}{2}}=-W_N^m$
+
+* 可约性
+
+  $W_{N/m}^k=W_N^{mk}$
+
+<h3 id="2.3">Advantage of FFT</h3>
+
+DFT的时间复杂度为$o(N^2)$，而FFT的时间复杂度为$o(N\log_2N)$
+
+<h2 id="3">Strategy of FFT</h2>
+
+<h3 id="3.1">时间抽取</h3>
+
+<h3 id="3.2">蝶形运算</h3>
